@@ -1,0 +1,61 @@
+body {
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+  word-break: keep-all;
+  color: #1d1d1d;
+  font-size: 16px;
+  line-height: 1;
+}
+a {
+  text-decoration: none;
+  color: #1d1d1d;
+}
+/* header */
+header {
+  background-color: #3A3A3A;
+}
+header .inner {
+  max-width: 1020px;
+  margin: auto;
+}
+header ul.menu {
+  display: flex;
+  justify-content: space-between;
+  /* space-aroud는 양쪽에도 여백, between은 양쪽 여백없음 */
+  height: 44px;
+}
+header ul.menu  > li {
+  display: flex;
+  /* 자식a를 높이를 stretch */
+  cursor: pointer;
+}
+header ul.menu  > li > a {
+  display: flex;
+  /* 중앙정렬 */
+  align-items: center;
+  padding: 0 10px;
+  font-size: 11px;
+  color: #F5F5F5;
+  opacity: .8;
+}
+header ul.menu  > li.apple-logo > a,
+header ul.menu  > li.search-starter > a,
+header ul.menu  > li.basket-starter > a {
+  width: 14px;
+  text-indent: -9999px;
+  /* 일반적으로 배경이미지 사용 시 대체 컨텐츠 들여쓰기 -9999px */
+  background-position: center 13px;
+  /* 좌우 center 상하 13px 위치 */
+  background-repeat: no-repeat;
+}
+header ul.menu  > li.apple-logo > a {
+  background-image: url("../images/header_apple.svg");
+}
+header ul.menu  > li.search-starter > a {
+  background-image: url("../images/header_search.svg");
+}
+header ul.menu  > li.basket-starter > a{
+  background-image: url("../images/header_bag.svg");
+}
+header ul.menu  > li:hover > a{
+  opacity: 1;
+}
