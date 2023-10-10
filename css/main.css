@@ -14,6 +14,12 @@ a {
   text-decoration: none;
   color: #1d1d1d;
 }
+img {
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  /* 최신기술이나 실험적 기술을 지원할 때 표준 기술과 구분하기 위해 공급없체접두사 붙임 */
+}
 .btn {
   display: flex;
   justify-content: center;
@@ -317,4 +323,5 @@ nav .menu li:hover a {
 nav .menu li.active:hover a {
   color: #3A3A3A;
 }
+
 
