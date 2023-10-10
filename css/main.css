@@ -1,3 +1,8 @@
+html.fixed {
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
 body {
   font-family: 'Roboto', 'Noto Sans KR', sans-serif;
   word-break: keep-all;
@@ -12,6 +17,7 @@ a {
 /* header */
 header {
   background-color: #3A3A3A;
+  position: relative;
 }
 header .inner {
   max-width: 1020px;
@@ -74,9 +80,12 @@ header .basket {
   /* calc활용해서 요소 조금 아래에 배치 */
   right: -6px;
   visibility: hidden;
+  transition: .4s;
+  opacity: 0;
 }
 header .basket.show {
   visibility: visible;
+  opacity: 1;
 }
 header .basket .arrow {
   width: 20px;
@@ -123,4 +132,120 @@ header .basket ul li a {
 }
 header .basket ul li:hover a {
   text-decoration: underline;
+}
+
+/* header / search */
+header .search-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: .4s;
+  opacity: 0;
+  visibility: hidden;
+}
+header .search {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+header .search .shadow {
+  background-color: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+}
+header .search .textfiedl {
+  position: relative;
+}
+header .search .textfiedl input {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+}
+header .search .textfiedl .search-icon {
+  background-image: url('../images/header_search.svg');
+  width: 40px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .4;
+}
+header .search .textfiedl .search-closer {
+  background-image: url('../images/header_close.svg');
+  width: 40px;
+  height: 44px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: .4;
+}
+header .search .textfiedl .search-closer:hover {
+  opacity: 1;
+}
+header .search .autocompletes {
+  background-color: #fff;
+  width: 100%;
+  padding: 26px 40px 20px;
+  border-radius: 0 0 18px 18px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 44px;
+  left: 0;
+
+}
+header .autocompletes h3 {
+  font-size: 12px;
+  color: #3A3A3A;
+  margin-top: 12px;
+}
+header .autocompletes ul li a {
+  display: block;
+  margin: 0 -14px;
+  padding: 10px 0 10px 30px;
+  cursor: pointer;
+}
+header .autocompletes ul li:hover a {
+  background-color: #F5F5F5;
+  color: #0071E3;
+}
+/* Search Animation */
+/* 스타일을 한 번에 지정 */
+header .search input,
+header .search .search-icon,
+header .search .autocompletes h3,
+header .search .autocompletes li {
+  transition: .6s;
+  transform: translate(100px, 0);
+}
+header.searching ul.menu > li {
+  transform: scale(.7);
+  opacity: 0;
+}
+header.searching .search-wrap {
+  /* 사라지는 애니메이션 .2s */
+  transition-delay: .2s;
+  opacity: 1;
+  visibility: visible;
+}
+header.searching .search input,
+header.searching .search .search-icon,
+header.searching .search .autocompletes h3,
+header.searching .search .autocompletes li {
+  transition-delay: .2s;
+  transform: translate(0, 0);
 }
