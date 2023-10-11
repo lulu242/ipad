@@ -96,3 +96,22 @@ pauseBtn.addEventListener('click', () => {
   playBtn.classList.remove('hide')
   pauseBtn.classList.add('hide')
 })
+
+// 요소의 가시성 관찰 로직(어떤 요소가 화면에 나오고 들어가는지)
+//Intersection(교차)Observer(관찰): 화면 나가거나 들어올 때마다 콜백함수실행
+// 관찰요소가 교차범위 변화가 있으면 안으로 들어오는 나가는지 확인해 show 클래스 붙여줌
+//target은 관찰 대상이고, isIntersecting이 T면 화면 안, F면 화면 밖
+const io = new IntersectionObserver(entries => {
+  // entries는 `io.observe(el)`로 등록된 모든 관찰 대상 배열.
+  entries.forEach(entry => {
+    // 사라질 때.
+    if (!entry.isIntersecting) {
+      return
+    }
+    entry.target.classList.add('show')
+  })
+})
+// 관찰할 요소들 검색
+const infoEls = document.querySelectorAll('.info')
+// 관찰 시작 IntersectionObserver.observe() 메서드는 주시대상 목록에 요소를 추가한다
+infoEls.forEach(el => io.observe(el))
