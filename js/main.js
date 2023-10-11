@@ -80,3 +80,19 @@ function playScroll() {
 function stopScroll() {
   document.documentElement.classList.add('fixed')
 }
+
+// 비디오 재생 
+const video = document.querySelector('.stage video')
+const playBtn = document.querySelector('.stage .controller--play')
+const pauseBtn = document.querySelector('.stage .controller--pause')
+
+playBtn.addEventListener('click', () => {
+  video.play() //비디오 태그는 play, pause로 재생조절 가능
+  playBtn.classList.add('hide')
+  pauseBtn.classList.remove('hide')
+})
+pauseBtn.addEventListener('click', () => {
+  video.play()
+  playBtn.classList.remove('hide')
+  pauseBtn.classList.add('hide')
+})
