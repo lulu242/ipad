@@ -974,6 +974,22 @@ nav .menu li.active:hover a {
   color: #03A10E;
 }
 
+/* Accessory Shop */
+.accessory-shop {
+  background-color: var(--color-section);
+  text-align: center;
+}
+.accessory-shop .whitebox {
+  padding-bottom: 0;
+}
+.accessory-shop .inner {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+.accessory-shop img {
+  margin-top: 50px;
+}
 
 
 /* sprite image를 활용한 애니메이션  60개의 이미지가 6 * 10으로 들어있음 */
