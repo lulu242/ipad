@@ -1,3 +1,5 @@
+import ipads from '../data/ipads.js'
+
 // 장바구니
 const basketStarterEl = document.querySelector('header .basket-starter')
 const basketEl = basketStarterEl.querySelector('.basket')
@@ -115,3 +117,33 @@ const io = new IntersectionObserver(entries => {
 const infoEls = document.querySelectorAll('.info')
 // 관찰 시작 IntersectionObserver.observe() 메서드는 주시대상 목록에 요소를 추가한다
 infoEls.forEach(el => io.observe(el))
+
+// '당신에게 맞는 iPad는?' 색상목록 추가
+const itemsEl = document.querySelector('section.compare .items')
+ipads.forEach(ipad => {
+  // div 생성 및 class 추가
+  const itemEl = document.createElement('div')
+  itemEl.classList.add('item')
+
+  // 색상 li 생성
+  let colorList = ''
+  ipad.colors.forEach(color => {
+    colorList += `<li style="background-color: ${color};"></li>`
+  })
+
+  itemEl.innerHTML = /* html */ `
+    <div class="thumbnail">
+      <img src="${ipad.thumbnail}" alt="${ipad.name}" />
+    </div>
+    <ul class="colors">
+      ${colorList}
+    </ul>
+    <h3 class="name">${ipad.name}</h3>
+    <p class="tagline">${ipad.tagline}</p>
+    <p class="price">₩${ipad.price.toLocaleString('en-US')}부터</p> 
+    <button class="btn">구입하기</button>
+    <a href="${ipad.url}" class="link">더 알아보기</a>
+  `
+  // items의 자식으로 item추가
+  itemsEl.append(itemEl)
+})
